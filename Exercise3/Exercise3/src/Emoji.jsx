@@ -1,18 +1,16 @@
 import { useState } from "react";
 
 function EmojiChanger() {
-  const [emoji, setEmoji] = useState("\u{1F60A}");
+  const [happy, setHappy] = useState(true);
 
   function changeMood() {
-    if (emoji == "\u{1F60A}") {
-      setEmoji("\u{1F622}");
-    } else {
-      setEmoji("\u{1F60A}");
-    }
+    setHappy(!happy);
   }
   return (
     <>
-      <div className="MoodChanger componentBox">Current Mood: {emoji}</div>
+      <div className="MoodChanger componentBox">
+        Current Mood: {happy ? "\u{1F60A}" : "\u{1F622}"}
+      </div>
       <button onClick={changeMood}>Change Mood</button>
     </>
   );
